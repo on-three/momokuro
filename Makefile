@@ -39,7 +39,7 @@ all: $(MKV)
 
 $(MKV): $(MP4) $(SRT_JP) $(ASS_EN)
 	mkdir -p "$(@D)"
-	$(FFMPEG) -i $(TS) -i $(ASS_EN) -i $(SRT_JP) \
+	$(FFMPEG) -i $(MP4) -i $(ASS_EN) -i $(SRT_JP) \
 	-map 0:v -map 0:a -map 1 -map 2 \
 	-metadata:s:s:0 language=eng -metadata:s:s:1 language=jpn "$@"
 
